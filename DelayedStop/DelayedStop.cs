@@ -8,7 +8,7 @@ using TShockAPI;
 
 namespace DelayedStop
 {
-	[ApiVersion(1, 16)]
+	[ApiVersion(1, 17)]
 	public class DelayedStop : TerrariaPlugin
 	{
 		public override string Name { get { return "Delayed Stop"; } }
@@ -61,8 +61,8 @@ namespace DelayedStop
 			}
 			catch (Exception ex)
 			{
-				Log.ConsoleError("[Delayed Stop] An exception occoured while parsing the config, check the logs for more details!");
-				Log.Error(ex.ToString());
+				TShock.Log.ConsoleError("[Delayed Stop] An exception occoured while parsing the config, check the logs for more details!");
+				TShock.Log.Error(ex.ToString());
 				Config = new DSConfig();
 			}
 		}
@@ -77,7 +77,7 @@ namespace DelayedStop
 			catch (Exception ex)
 			{
 				args.Player.SendErrorMessage("[Delayed Stop] An exception occoured while parsing the config, check the logs for more details!");
-				Log.Error("[Delayed Stop] An exception occoured while parsing the config, check the logs for more details!\n" + ex.ToString());
+				TShock.Log.Error("[Delayed Stop] An exception occoured while parsing the config, check the logs for more details!\n" + ex.ToString());
 				Config = new DSConfig();
 			}
 		}
@@ -191,8 +191,8 @@ namespace DelayedStop
 			}
 			if (!HasPlayersOnline)
 			{
-				Log.ConsoleInfo("[Delayed Stop] A delayed stop is in progress and no one is on the server!");
-				Log.ConsoleInfo("[Delayed Stop] Server will now shutdown!");
+				TShock.Log.ConsoleInfo("[Delayed Stop] A delayed stop is in progress and no one is on the server!");
+				TShock.Log.ConsoleInfo("[Delayed Stop] Server will now shutdown!");
 				TShock.Utils.StopServer(true, string.Concat(Config.Shutdown_Message, ShutdownReason));
 			}
 		}
