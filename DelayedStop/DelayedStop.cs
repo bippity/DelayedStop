@@ -8,7 +8,7 @@ using TShockAPI;
 
 namespace DelayedStop
 {
-	[ApiVersion(1, 17)]
+	[ApiVersion(2, 1)]
 	public class DelayedStop : TerrariaPlugin
 	{
 		public override string Name { get { return "Delayed Stop"; } }
